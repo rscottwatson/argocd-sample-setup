@@ -1,0 +1,5 @@
+resources:
+#- istio.yaml
+#- cert-manager.yaml
+- sealed-secrets.yaml
+#- argocd.yaml 

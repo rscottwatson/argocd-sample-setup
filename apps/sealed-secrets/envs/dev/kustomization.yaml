@@ -1,0 +1,23 @@
+bases:
+- ../../base/
+
+patches:
+- patch: |-
+    - op: replace
+      path: "/apiVersion"
+      value: rbac.authorization.k8s.io/v1
+  target:
+    group: rbac.authorization.k8s.io
+    version: v1beta1
+
+
+patchesStrategicMerge:
+  - controller_args.yaml
+
+# When ready to upgrade dev we update this 
+# and break it from the base
+#  this doesn't seem like a very good pattern.
+#
+# perhaps it is best to manage each environment and not to use a BASE?
+#resources:
+# - https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.17.5/controller.yaml
